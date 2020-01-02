@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+ 	</style>
+</head>
+<body style="max-width: 1200px;margin: 0 auto;margin-bottom: 120px;">
+<h1 style="text-align: center;">cms数据库设计文档</h1>
+<h2>表汇总</h2>
+<table width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>名称</td>
+        <td>备注</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>cms_ad</td>
+        <td>广告表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_admin</td>
+        <td>管理员表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_ad_position</td>
+        <td>广告位表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_category</td>
+        <td>栏目表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_config</td>
+        <td>配置表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_content</td>
+        <td>内容表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_form</td>
+        <td>表单表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_friend_link</td>
+        <td>友情链接表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_member</td>
+        <td>会员表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_model</td>
+        <td>内容模型表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_model_field</td>
+        <td>内容字段表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>cms_site</td>
+        <td>内容模型表</td>
+    </tr>
+    </tbody>
+</table>
+<h2>表明细</h2>
+<br>
+<h3>广告表(cms_ad)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>sort</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>排序</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>remark</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>备注</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>introduction</td>
+        <td>longtext</td>
+        <td></td>
+        <td>是</td>
+        <td>内容</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>image</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>图片</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>url</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>链接地址</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>adPositionId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>广告位ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>管理员表(cms_admin)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>姓名</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>isSystem</td>
+        <td>bit(1)</td>
+        <td></td>
+        <td>是</td>
+        <td>是否系统内置</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>type</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>类型</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>password</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>密码</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>username</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>账号</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>permission</td>
+        <td>text</td>
+        <td></td>
+        <td>是</td>
+        <td>权限</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>广告位表(cms_ad_position)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>栏目表(cms_category)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>sort</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>排序</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>grade</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>等级</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>image</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>图片</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>description</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>描述</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>keywords</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>关键词</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>title</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>标题</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>treePath</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>树结构路径</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>parentId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>父栏目ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modelFieldValue</td>
+        <td>longtext</td>
+        <td></td>
+        <td>是</td>
+        <td>内容字段值</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>contentModelId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>内容模型ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>categoryModelId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>栏目模型ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>type</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>类型</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>listTemplate</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>列表模板</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>contentTemplate</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>内容模板</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>pageTemplate</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>页面模板</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>introduction</td>
+        <td>longtext</td>
+        <td></td>
+        <td>是</td>
+        <td>内容</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>url</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>链接地址</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>isMenu</td>
+        <td>bit(1)</td>
+        <td></td>
+        <td>是</td>
+        <td>是否是菜单</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>配置表(cms_config)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>value</td>
+        <td>longtext</td>
+        <td></td>
+        <td>是</td>
+        <td>值</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>title</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>标题</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>type</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>类型</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>isSystem</td>
+        <td>bit(1)</td>
+        <td></td>
+        <td>是</td>
+        <td>是否系统内置</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>内容表(cms_content)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>publishDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>是</td>
+        <td>发布日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>hits</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>点击数</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>sort</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>排序</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>type</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>类型</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>description</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>描述</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>keywords</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>关键词</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>title</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>标题</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>image</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>图片</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>introduction</td>
+        <td>longtext</td>
+        <td></td>
+        <td>是</td>
+        <td>内容</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>categoryId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>栏目ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modelFieldValue</td>
+        <td>longtext</td>
+        <td></td>
+        <td>是</td>
+        <td>内容字段值</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>表单表(cms_form)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modelId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>表单模型ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>contentId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>内容ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modelFieldValue</td>
+        <td>longtext</td>
+        <td></td>
+        <td>是</td>
+        <td>表单字段值</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>友情链接表(cms_friend_link)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>sort</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>排序</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>image</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>图片</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>url</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>链接地址</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>会员表(cms_member)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>password</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>密码</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>username</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>用户名</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>姓名</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>内容模型表(cms_model)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>type</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>类型</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>listTemplate</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>列表模板</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>contentTemplate</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>内容模板</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>tableName</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>数据库表</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>isCaptcha</td>
+        <td>bit(1)</td>
+        <td></td>
+        <td>是</td>
+        <td>是否需要验证码</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>内容字段表(cms_model_field)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>sort</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td></td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>type</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>类型</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>alias</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>别名</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>prompt</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>输入提示</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>pattern</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>数据校验</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>attributeValue</td>
+        <td>text</td>
+        <td></td>
+        <td>是</td>
+        <td>属性值</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modelId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>模型ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>isEnabled</td>
+        <td>bit(1)</td>
+        <td></td>
+        <td>是</td>
+        <td>是否启动</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>isRequired</td>
+        <td>bit(1)</td>
+        <td></td>
+        <td>是</td>
+        <td>是否必填</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>siteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>站点ID</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<h3>内容模型表(cms_site)</h3>
+<table   width="100%">
+    <thead style="background-color: #b9c9fe;font-weight: bold;">
+    <tr>
+        <td>列名</td>
+        <td>类型</td>
+        <td>KEY</td>
+        <td>可否为空</td>
+        <td>注释</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: #e8edff;">
+        <td>id</td>
+        <td>bigint(20)</td>
+        <td>PRI</td>
+        <td>否</td>
+        <td>ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>createDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>创建日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>modifyDate</td>
+        <td>datetime</td>
+        <td></td>
+        <td>否</td>
+        <td>修改日期</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>name</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>名称</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>domain</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td>域名</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>type</td>
+        <td>int(11)</td>
+        <td></td>
+        <td>是</td>
+        <td>类型</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>sameSiteId</td>
+        <td>bigint(20)</td>
+        <td></td>
+        <td>是</td>
+        <td>同站点ID</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>isSystem</td>
+        <td>bit(1)</td>
+        <td></td>
+        <td>是</td>
+        <td>是否系统内置</td>
+    </tr>
+    <tr style="background-color: #e8edff;">
+        <td>template</td>
+        <td>varchar(255)</td>
+        <td></td>
+        <td>是</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

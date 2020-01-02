@@ -1,0 +1,70 @@
+<!-- common start -->
+#include("common.html")
+<!-- common end -->
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="#(config.description)">
+  <meta name="keywords" content="#(config.keywords)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>#(currentContent.title)-#(config.siteName)</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+   <script src="#(tpath)/static/js/jquery.min.js"></script>
+  <style type="text/css">
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+ol, ul{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after, q:before, q:after{content:'';content:none}
+:focus{outline:0}
+ins{text-decoration:none}
+del{text-decoration:line-through}
+table{border-collapse:collapse;border-spacing:0}
+a{text-decoration:none;color:#fff}
+body{font-family:"Kreon";font-weight:300;color:#333;background:#fff;}
+  #iframe-wrap{height:100%;overflow:visible;position:relative;z-index:50}
+  #by{overflow-y:hidden}
+  </style>
+      <!--[if IE]>
+
+    <style type="text/css">
+        li.remove_frame a {
+            padding-top: 5px;
+            background-position: 0px -3px;
+        }
+    </style>
+
+    <![endif]-->
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function fixHeight() {
+                var headerHeight = $("#switcher").height();
+                $("#iframe").attr("height", $(window).height()+ "px");
+            }
+            $(window).resize(function () {
+                fixHeight();
+            }).resize();
+
+        });
+    </script>
+    
+  
+</head>
+<body id="by">
+<div id="iframe-wrap">
+    <iframe id="iframe" src="#(currentContent.demoUrl)" frameborder="0"  width="100%"></iframe><!-- #(currentContent.description) -->
+</div>
+</body>
+</html>

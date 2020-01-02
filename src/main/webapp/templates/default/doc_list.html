@@ -1,0 +1,116 @@
+<!-- common start -->
+#include("common.html")
+<!-- common end -->
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="#(config.description)">
+  <meta name="keywords" content="#(config.keywords)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>#(currentCategory.name)-#(config.siteName)</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="#(tpath)/static/css/amazeui.min.css">
+  <link rel="stylesheet" href="#(tpath)/static/css/style.css">
+  <!--[if (gte IE 9)|!(IE)]><!-->
+  <script src="#(tpath)/static/js/jquery.min.js"></script>
+  <script src="#(tpath)/static/js/jquery.sliphover.min.js"></script>
+  <!--<![endif]-->
+  <script src="#(tpath)/static/js/jquery.SuperSlide.2.1.2.js"></script>
+  <style type="text/css">
+  *{padding: 0;margin: 0;}
+a{text-decoration: none;color: inherit;transition: all .3s ease;}
+.items{padding: 60px 0;overflow: hidden;}
+.center{width: 1200px;margin: 0 auto;position: relative;min-width: 1200px;}
+.main-title{font-size: 30px;text-align: center;margin-bottom: 50px;}
+.items-solution .flex-row{justify-content: space-between;display: flex;flex-direction: row;align-items: center;}
+.items-solution .item{position: relative;width: 276px;height: 246px;box-shadow: 0 0 3px 2px rgba(135, 135, 135, 0.15);}
+.items-solution .item-title{text-align: center;height: 83px;line-height: 83px;background-color: #293949;font-size: 18px;color: #fff;margin-bottom: 40px;}
+.transition{-moz-transition: all .3s ease;-webkit-transition: all .3s ease;transition: all .3s ease;}
+.items-solution .item-p{text-align: center;width: 62%;margin: 0 auto;height: 40px;line-height: 40px;box-sizing: border-box;border-bottom: 2px dotted #E6E6E6;}
+.items-solution .item-p:last-child{border: none;}
+.items-solution .item-btn{position: absolute;width: 140px;height: 40px;line-height: 40px;text-align: center;left: 50%;bottom: 50px;transform: translateX(-50%);}
+.items-solution .item-btn-a{background-color: #C5C5C5;color: #fff;display: block;}
+.items-solution .item:hover .item-title{background-color: #3CA7FC;}
+.items-solution .item:hover .item-btn-a{background-color: #3CA7FC;}
+  </style>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，#(config.siteName) 暂不支持。 请使用Chrome谷歌浏览器访问本站或至 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+<!--主体-->
+<!--头部开始-->
+#include("header.html")
+<!--头部结束-->
+<!--轮播开始-->
+#include("banner.html")
+ <!--轮播结束-->
+    <!--导航开始-->
+ <div class="points">
+ 	<div class="am-container">你也想拥有一个像下面的案例中那样的一个网站吗？那就和我们联系吧 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=644080923&site=qq&menu=yes" class="am-icon-qq"> 点击联系</a>
+ 		<div class="am-fr"> <span class="am-icon-home"></span> <a href="#(base)/">首页</a>&nbsp;>&nbsp;<a href="#(currentCategory.path)">#(currentCategory.name)</a>  </div>
+ 	</div>
+ </div>
+   <!--导航结束-->
+<div class="items items-solution">
+	<div class="center">
+		<p class="main-title">文档</p>
+		<div class="flex-row">
+			<div class="item" style="margin: 0 auto;">
+				<p class="transition item-title">企业建站版</p>
+				<div class="item-block">
+					#content_list(categoryId=50)
+					#for(content : contents)
+					<p class="item-p"><a href="#(content.path)">#(content.title)</a></p>
+					#end
+					#end
+				</div>
+				<!-- <div class="item-btn">
+					<a href="#" class="item-btn-a" target="_blank">了解更多</a>
+				</div> -->
+			</div>
+			<div class="item" style="margin: 0 auto;">
+				<p class="transition item-title">商城版</p>
+				<div class="item-block">
+					#content_list(categoryId=51)
+					#for(content : contents)
+					<p class="item-p"><a href="#(content.path)">#(content.title)</a></p>
+					#end
+					#end
+				</div>
+				<!-- <div class="item-btn">
+					<a href="#" class="item-btn-a" target="_blank">了解更多</a>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+  <!--联系我们开始-->
+#include("contactus.html")
+   <!--联系我们结束-->
+<!--底部开始-->
+#include("footer.html")
+<!--底部结束-->
+<!--End HE -->
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="#(tpath)/static/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="#(tpath)/static/js/amazeui.min.js"></script>
+<!-- 主体End -->
+</body>
+</html>

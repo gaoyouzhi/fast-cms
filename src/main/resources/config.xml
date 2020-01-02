@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cms>
+	<config name="siteName" value="JreCms" />
+    <config name="siteUrl" value="http://www.jrecms.com" />
+    <config name="logo" value="/upload/image/logo.png" />
+    <config name="title" value="JreCms,JavaCms,JFinalCms,SpringBootCms,Java内容管理系统,网站建设,网站开发,微信公众号开发,微信小程序开发,微信APP开发,webapp开发" />
+    <config name="keywords" value="JreCms,JavaCms,JFinalCms,SpringBootCms,Java内容管理系统,互联网建站平台,网站建设,网站开发,微信公众号开发,微信小程序开发,微信APP开发,webapp开发" />
+    <config name="description" value="JreCms,JavaCms,JFinalCms,Java内容管理系统,互联网建站平台,网站建设,网站开发,微信公众号开发,微信小程序开发,微信APP开发,webapp开发,省时省力省心,标准化制作流程,让您建站无忧" />
+    <config name="theme" value="default" />
+    <config name="address" value="长沙市雨花区树木岭" />
+    <config name="certtext" value="湘ICP备19003655号" />
+    <config name="email" value="644080923@qq.com" />
+    <config name="zipCode" value="410000" />
+    <config name="qq" value="644080923" />
+    <config name="phone" value="" />
+    <config name="weixin" value="heyewei123" />
+    <config name="statisticsCode" value="&lt;script&gt;var _hmt = _hmt || [];(function() {var hm = document.createElement(&quot;script&quot;);hm.src = &quot;https://hm.baidu.com/hm.js?628a5db77ea7f3c59647748e9a9b99a8&quot;;var s = document.getElementsByTagName(&quot;script&quot;)[0]; s.parentNode.insertBefore(hm, s);})();&lt;/script&gt;" />
+</cms>

@@ -1,0 +1,516 @@
+<!-- common start -->
+#include("common.html")
+<!-- common end -->
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="#(config.description)">
+  <meta name="keywords" content="#(config.keywords)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>#(currentCategory.name)-#(config.siteName)</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="#(tpath)/static/css/amazeui.min.css">
+  <link rel="stylesheet" href="#(tpath)/static/css/style.css">
+  <!--[if (gte IE 9)|!(IE)]><!-->
+  <script src="#(tpath)/static/js/jquery.min.js"></script>
+  <script src="#(tpath)/static/js/jquery.sliphover.min.js"></script>
+  <!--<![endif]-->
+  <script src="#(tpath)/static/js/jquery.SuperSlide.2.1.2.js"></script>
+  <!-- 购买 -->
+  <style type="text/css">
+  .buy-info {
+    border: 1px solid #D1D7DC;
+    margin-left: 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    display: block;
+    margin: 10px 0;
+    border-left: 1px solid #D1D7DC;
+    line-height: 23px;
+    background-color: #FAFAFA;
+    text-indent: 0;
+}
+  em{ font-weight:normal; font-style:normal; }
+  .baojia-table,.baojia-table td{ text-align:center; color:#3d3d3d;background-color: #f4f4f4;}
+.baojia-table thead td{ background-color:#b8cee3; border:1px solid #a1b6c7;  font-size:14px}
+.baojia-table thead td div{ border:1px solid #c4d9ec; height:40px; line-height:40px}
+.baojia-table tbody td{ height:34px; padding:5px;border:1px solid #ced6d9;}
+.baojia-table tbody th{ background-color:#dce1e4;border:1px solid #ced6d9; height:30px; text-align:center}
+.price{ font-size:18px; font-family:Arial, Helvetica, sans-serif; font-weight:bold;color: #FA0202;}
+
+.min-height{min-height:450px;height:100%;}
+.baojia-content{ margin: 12px 40px;
+}
+.buy-btn {
+background-color: #f29407;
+background-position: 0 -360px;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+border-color: #da9608 #cb7d09 #bc650a #cb7d09;
+padding: 3px 15px;
+height: 25px;
+line-height: 25px;
+text-align: center;
+color: #FFF;
+border-radius: 15px;
+}
+.baojia-table td.w11em{width:12em; text-align: right;}
+    tr.hsd{background-color:#DCE1E4;}
+    .baojia-table td.h24s{height:24px; font-weight:bold;}
+    .cgrs{color:#999;}
+  </style>
+  <!-- 打赏 -->
+  <style type="text/css">
+        .content{width:80%;margin:200px auto;}
+                .hide_box{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+        .shang_box{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+        .shang_box img{border:none;border-width:0;}
+        .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+        .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+        .shang_close{float:right;display:inline-block;}
+                .shang_logo{display:block;text-align:center;margin:20px auto;}
+        .shang_tit{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('#(tpath)/static/images/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+        .shang_tit p{color:#a3a3a3;text-align:center;font-size:16px;}
+        .shang_payimg{width:200px;/* padding:10px;border:6px solid #EA5F00;border-radius:3px; */margin:0 auto;height:300px;}
+        .shang_payimg img{display:block;text-align:center;width:200px;height:300px; }
+        .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+        .radiobox{width: 16px;height: 16px;background: url('#(tpath)/static/images/radio2.jpg');display: block;float: left;margin-top: 5px;margin-right: 14px;}
+        .checked .radiobox{background:url('#(tpath)/static/images/radio1.jpg');}
+        .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:280px;}
+        .shang_payselect .pay_item{display:inline-block;margin-right:10px;float:left;}
+        .shang_info{clear:both;}
+        .shang_info p,.shang_info a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+
+    </style>
+  
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，#(config.siteName) 暂不支持。 请使用Chrome谷歌浏览器访问本站或至 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+<!--主体-->
+<!--头部开始-->
+#include("header.html")
+<!--头部结束-->
+<!--轮播开始-->
+#include("banner.html")
+ <!--轮播结束-->
+ <div class="nav-bg" data-am-scrollspy-nav="{offsetTop: 45}" data-am-sticky>
+ 	<div class="am-container">
+ 		<nav>
+		  <ul>
+		    <li><a href="#vhost1">产品购买</a></li>
+		    <li><a href="#vhost2">产品优势</a></li>
+		    <li><a href="#vhost3">常见问题</a></li>
+		  </ul>
+		</nav>
+ 	</div>
+ </div>
+ <section id="vhost1" class="vhost_list">
+    <div class="am-container">
+            <h1 class="am-text-center">服务范围</h1>
+    <!-- <p class="sub-header am-text-center">支持定制开发,提供源代码,安全有保障</p> -->
+    
+ <div class="baojia-content">
+
+<table border="0" class="baojia-table" width="100%">
+    <thead>
+        <tr>
+            <td width="200">
+                <div>
+                    服务项目\类型</div>
+            </td>
+            <td>
+                <div>
+                    企业建站版</div>
+            </td>
+            <td>
+                <div>商城版</div>
+            </td>
+            <td>
+                <div>
+                    高级定制版</div>
+            </td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                价格</td>
+            <td><em class="price">500</em> 元</td>
+            <td><em class="price">500</em> 元</td>
+            <td><em class="price">1000</em> 元起</td>
+        </tr>
+        
+        <tr>
+            <td>
+                前台版权</td>
+            <td>可以删除</td>
+            <td>可以删除</td>
+            <td>可以删除</td>
+        </tr>
+        <tr>
+            <td>
+                后台版权</td>
+            <td>可以删除</td>
+            <td>可以删除</td>
+            <td>可以删除</td>
+        </tr>
+        
+        <tr>
+            <td>授权域名</td>
+            <td>不限</td>
+            <td>不限</td>
+            <td>不限</td>
+        </tr>
+        
+        
+        <tr>
+            <th colspan="5">
+                技术服务方式</th>
+        </tr>
+        <tr>
+            <td>
+                QQ 支持</td>
+            <td><img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+
+        
+        <tr>
+            <th colspan="5">基本技术支持</th>
+        </tr>
+        <tr>
+            <td>
+                程序安装指导</td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+        <tr>
+            <td>
+                程序使用指导</td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+        <tr>
+            <td>
+                程序升级指导</td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td><img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+        <tr>
+            <td>
+                产品BUG反馈处理</td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+
+        <tr>
+            <th colspan="5">
+                高级技术支持</th>
+        </tr>
+        <tr>
+            <td>
+                软件环境安装</td>
+            <td><img src="#(tpath)/static/images/attr.jpg" />
+                </td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+        <tr>
+            <td>
+                运行环境优化</td>
+            <td><img src="#(tpath)/static/images/attr.jpg" />
+                </td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+                数据库优化</td>
+            <td><img src="#(tpath)/static/images/attr.jpg" />
+                </td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+        <tr>
+            <td>
+                模板制作技术咨询</td>
+            <td><img src="#(tpath)/static/images/attr.jpg" />
+                </td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>
+        <tr>
+            <td>
+                二次开发技术咨询</td>
+            <td><img src="#(tpath)/static/images/attr.jpg" />
+              </td>
+            <td><img src="#(tpath)/static/images/attr.jpg" /></td>
+            <td>
+                <img src="#(tpath)/static/images/attr.jpg" /></td>
+        </tr>       
+
+
+        <tr>
+            <th colspan="5">
+                其他说明</th>
+        </tr>
+        <tr>
+            <td>
+                使用年限</td>
+            <td>
+                无限制</td>
+            <td>
+                无限制</td>
+            <td>
+                无限制</td>
+        </tr>
+        <tr>
+            <td>
+                升级年限</td>
+            <td>
+                无限制</td>
+            <td>
+                无限制</td>
+            <td>
+                无限制</td>
+        </tr>
+        
+        <tr>
+            <td>
+                技术支持年限</td>
+            <td>
+                无限制</td>
+            <td>
+                无限制</td>
+            <td>
+                无限制</td>
+        </tr>
+        <tr>
+            <th colspan="5">
+                服务报价</th>
+        </tr>
+        <tr>
+            <td>
+                价格</td>
+            <td>
+                <em class="price">500</em> 元</td>
+            <td>
+                <em class="price">500</em> 元</td>
+            <td>
+                <em class="price">1000</em> 元起</td>
+        </tr>
+        <tr>
+            <td>
+                体验</td>
+            <td>
+                <a href="http://cms.jrecms.com" target="_blank">前台</a>&nbsp;&nbsp;<a href="http://cms.jrecms.com/admin/login?username=admin&password=123456" target="_blank">后台</a></td>
+            <td>
+                <a href="http://shop.jrecms.com" target="_blank">前台</a>&nbsp;&nbsp;<a href="http://shop.jrecms.com/admin/login?username=admin&password=123456" target="_blank">后台</a></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;
+                </td>
+            <td>
+                <a class="buy-btn"  style="cursor:pointer" onClick="dashangToggle()"><span>购买</span></a>
+            </td>
+            <td>
+                <a class="buy-btn"  style="cursor:pointer" onClick="dashangToggle()"><span>购买</span></a>
+             </td>
+            <td>
+                <a class="buy-btn"  style="cursor:pointer" onClick="dashangToggle()"><span>购买</span></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="bk15">
+    &nbsp;</div>
+<div class="lh22">
+    <strong>购买说明：</strong><br />
+    <span class="buy-info">
+1、联系销售人员确认购买的版本类型或服务；<br />
+2、联系销售确认到账，并由销售人员发放产品源代码；<br />
+3、不接受议价，及预付方式，所有费用需一次性全额付款；</span><br />
+</div>
+<div class="bk15">
+    &nbsp;</div>
+<div class="lh22">
+    <strong>相关说明：</strong><br />
+    <span class="buy-info">
+1、以下情况不属于服务范围<br />
+   自行修改或使用非原始JreCms程序代码产生的问题;<br />
+   自行对数据库进行直接操作导致数据库出错或者崩溃;<br />
+   服务器原因造成的系统故障;<br />
+   非官方二次开发或定制;<br />
+2、"√" 表示该版本已具备或支持此功能或服务<br />
+3、价格执行日期：2019.3.16<br />
+</span>
+</div><div class="bk15">
+    &nbsp;</div>
+
+    </div>
+ </div>
+ </section>
+ 
+<!--  <section id="vhost1" class="vhost_list">
+ 	<div class="am-container">
+ 		<h1 class="am-text-center">服务范围</h1>
+ 	<p class="sub-header am-text-center">支持定制开发,提供源代码,安全有保障</p>
+  <ul class="am-avg-sm-5 price-block">
+  <li>
+  	<section class="am-panel am-panel-primary am-text-center">
+  <header class="am-panel-hd">
+    <h3 class="am-panel-title am-text-center">企业建站</h3>
+  </header>
+  <div class="am-panel-bd">
+  	<dl>
+  		<dt>500<small>元</small></dt>
+  	</dl>
+  	<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=#(config.qq)&site=qq:#(config.qq)&menu=yes" class="am-btn am-btn-secondary am-btn-block">立即咨询</a>
+  </div>
+</section>
+  </li>
+  
+  
+</ul>
+</div>
+ </section> -->
+ 
+ <section id="vhost2" class="about-main am-text-center">
+ 	<div class=""><h1>产品优势</h1><span>极速开发,自定义模型，自定义字段，多站点，一键生成模板代码。</span></div>
+ 	<div class="am-g am-g-fixed strengths">
+  <div class="am-u-sm-4">
+  	<img class="" src="#(tpath)/static/images/rocket.png"/>
+  	<h3>超高的性价比</h3>
+  	<p>低成本让您轻松打造自己的独立网站，同时也方便二次开发，让您快速搭建个性化独立网站，为您节约更多时间，去陪恋人、家人和朋友。</p>
+  </div>
+  <div class="am-u-sm-4">
+  	<img class="" src="#(tpath)/static/images/cpanel.png"/>
+  	<h3>友好的后台控制面板</h3>
+  	<p>使用目前最受欢迎的前端框架Bootstrap，它简洁灵活，使得 Web 开发更加快捷。。</p>
+  </div>
+  <div class="am-u-sm-4">
+  	<img class="" src="#(tpath)/static/images/services.png"/>
+  	<h3>售后服务</h3>
+  	<p>一对一对接、手把手教、有问题随时联系、立马解决。</p>
+  </div>
+</div>
+ </section>
+ 
+ <section id="vhost3" class="about-main">
+ 	<div class="am-text-center"><h1>常见问题</h1><span>您可以通过如下方式与我们联系，QQ在线即回，邮件24小时内回复。</span></div>
+ 	<div class="am-g project_con">
+  <div class="am-u-sm-9 am-u-sm-centered">
+  	<dl>
+  		<!-- <dt>问：？</dt>
+  		<dd>答：。</dd>
+  		<dt>问：？</dt>
+  		<dd>答：。</dd>
+  		<dt>问：？</dt>
+  		<dd>答：。</dd> -->
+  	</dl>
+  	<hr/>
+  </div>
+</div>
+ </section>
+ 
+ <!-- 打赏 -->
+    <div class="hide_box"></div>
+    <div class="shang_box">
+        <a class="shang_close" href="javascript:void(0)" onClick="dashangToggle()" title="关闭"><img src="#(tpath)/static/images/close.jpg" alt="取消" /></a>
+        <div class="shang_tit">
+            <p>感谢您的支持，我会继续努力的!</p>
+        </div>
+        <div class="shang_payimg">
+            <img src="#(tpath)/static/images/alipayqr.jpg" alt="扫码支持" title="扫一扫" />
+        </div>
+        <div class="shang_payselect">
+            <div class="pay_item checked" data-id="alipayqr">
+                <span class="radiobox"></span>
+                <span class="pay_logo"><img src="#(tpath)/static/images/alipay.jpg" alt="支付宝" /></span>
+            </div>
+            <div class="pay_item" data-id="weixinqr">
+                <span class="radiobox"></span>
+                <span class="pay_logo"><img src="#(tpath)/static/images/wechat.jpg" alt="微信" /></span>
+            </div>
+        </div>
+        <div class="shang_info">
+            <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行付款哦</p>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+        $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","#(tpath)/static/images/"+dataid+".jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+        });
+    });
+    function dashangToggle(){
+        $(".hide_box").fadeToggle();
+        $(".shang_box").fadeToggle();
+    }
+    </script>
+ 
+  <!--联系我们开始-->
+#include("contactus.html")
+   <!--联系我们结束-->
+<!--底部开始-->
+#include("footer.html")
+<!--底部结束-->
+<!--End HE -->
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="#(tpath)/static/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="#(tpath)/static/js/amazeui.min.js"></script>
+<!-- 主体End -->
+</body>
+</html>

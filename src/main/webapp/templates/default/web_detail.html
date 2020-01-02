@@ -1,0 +1,110 @@
+<!-- common start -->
+#include("common.html")
+<!-- common end -->
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="#(config.description)">
+  <meta name="keywords" content="#(config.keywords)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>#(currentContent.title)-#(config.siteName)</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="#(tpath)/static/css/amazeui.min.css">
+  <link rel="stylesheet" href="#(tpath)/static/css/style.css">
+  <!--[if (gte IE 9)|!(IE)]><!-->
+  <script src="#(tpath)/static/js/jquery.min.js"></script>
+  <!--<![endif]-->
+  <script src="#(tpath)/static/js/jquery.SuperSlide.2.1.2.js"></script>
+  <style type="text/css">
+  .vad a {
+    display: inline-block;
+    width: 180px;
+    height: 40px;
+    margin: 0 10px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff !important;
+    background-color: #AAE16D;
+    background-color: #EB8E73;
+    background-color: #95E144;
+    background-color: #3EB0D8;
+    background-color: #70CA10;
+    background-color: #21B384;
+}
+  </style>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，#(config.siteName) 暂不支持。 请使用Chrome谷歌浏览器访问本站或至 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+<!--主体-->
+<!--头部开始-->
+#include("header.html")
+<!--头部结束-->
+<!--轮播开始-->
+#include("banner.html")
+ <!--轮播结束-->
+ <!--导航开始-->
+ <div class="points">
+ 	<div class="am-container">你也想拥有一个像下面的案例中那样的一个网站吗？那就和我们联系吧
+ 		<div class="am-fr"> <span class="am-icon-home"></span> <a href="#(base)/">首页</a>&nbsp;>&nbsp;<a href="#(currentContent.category.path)">#(currentContent.category.name)</a>  </div>
+ 	</div>
+ </div>
+   <!--导航结束-->
+      <!--内容开始-->
+ <section class="news-ct">
+<div class="am-g am-g-fixed">
+	 <div class="am-u-sm-12 am-u-md-9 am-u-sm-centered">
+  <h1 class="nt">#(currentContent.title)</h1>
+  <p class="from am-text-center"><time><i class="am-icon-clock-o"></i>#date(currentContent.createDate,"yyyy-MM-dd")</time> <a href="#(currentContent.category.path)"><i class="am-icon-th-list"></i>#(currentContent.category.name)</a></p>
+  <p style="margin: 0 auto;text-align: center;"><img title="#(currentContent.title)" src="#(currentContent.image)" alt="#(currentContent.title)" style="max-width: 100%;"/></p>
+  <h2>简介</h2>
+  <div class="news-ctbox" style="font-size: 1pc;">
+  		#(currentContent.introduction)
+  </div>
+  <p class="vad" style="margin: 24px 0;text-align: center;font-size: 0;">
+  	<a class="view" title="演示" href="#(base)/content/demo/#(currentContent.id)" target="_blank">演 示</a> 
+  	<!-- <a class="down" title="下载" href="#(base)/content/down/#(currentContent.id)" target="_blank">下 载</a> -->
+  </p>
+<!-- <p>&nbsp;打虎吧</p><div class="zan">
+	<a href="javascript:;" class="am-btn am-btn-success am-btn-xl"><i class="am-icon-thumbs-o-up"></i> 赞一下</a>
+</div> -->
+  	</div>
+<!--page-->
+<!-- <div class="nextnews"> 
+	<span class="am-fl">上一篇：<a href='/case/case5/'>返回列表</a></span> 
+	<span class="am-fr">下一篇：<a href='/case/case5/'>返回列表</a></span> 
+</div> -->
+  </div>
+ </section>
+<!--内容结束-->
+  <!--联系我们开始-->
+#include("contactus.html")
+   <!--联系我们结束-->
+<!--底部开始-->
+#include("footer.html")
+<!--底部结束-->
+<!--End HE -->
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="#(tpath)/static/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="#(tpath)/static/js/amazeui.min.js"></script>
+<!-- 主体End -->
+</body>
+</html>

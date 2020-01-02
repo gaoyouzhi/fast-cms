@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>编辑栏目</title>
+#include("../include/common.html")
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>编辑栏目</h5>
+            </div>
+           <form id="inputForm" action="update" method="post">
+           		<input type="hidden" name="id" value="#(category.id)">
+	            <div class="ibox-content">
+	                <div class="form-horizontal clearfix">
+	                    <div class="form-group">
+	                        <label class="col-sm-3 control-label">名称：</label>
+	                        <div class="col-sm-3">
+	                            <input placeholder="名称" class="form-control" type="text" name="name" value="#(category.name)">
+	                        </div>
+	                    </div>
+	                     <div class="form-group">
+	                        <label class="col-sm-3 control-label">上级分类：</label>
+	                        <div class="col-sm-3">
+	                            <select class="form-control" name="parentId">
+									<option value="">顶级分类</option>
+									#for(categoryItem : categoryTree)
+										<option value="#(categoryItem.id)" #if(category.parentId==categoryItem.id) selected #end> 
+											#if(categoryItem.grade != 0)
+                                                 #for(i = 0; i < categoryItem.grade; i++)
+                                                    &nbsp;&nbsp;
+                                                #end
+                                            #end
+                                            #(categoryItem.name)
+										</option>
+									#end
+								</select>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+                            <label class="col-sm-3 control-label">是否做为菜单：</label>
+                            <div class="col-sm-3">
+                                <div class="radio">
+                                    <label class="m-r"><input name="isMenu" value="true" type="radio" #if(category.isMenu) checked #end>是</label>
+                                    <label class="m-r"><input name="isMenu" value="false" type="radio" #if(!category.isMenu) checked #end>否</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">模型：</label>
+                            <div class="col-sm-3">
+                                <div class="radio" id="model">
+                                    <label class="m-r"><input name="model" value="1" type="radio" #if(category.model==1) checked #end>文章</label>
+                                    <label class="m-r"><input name="model" value="2" type="radio" #if(category.model==2) checked #end>代码</label>
+                                </div>
+                            </div>
+                        </div>
+	                    <div class="form-group">
+                            <label class="col-sm-3 control-label">类型：</label>
+                            <div class="col-sm-3">
+                                <div class="radio" id="type">
+                                   <label class="m-r"><input name="type" value="1" type="radio" #if(category.type==1) checked #end>列表</label>
+                                   <label class="m-r"><input name="type" value="2" type="radio" #if(category.type==2) checked #end>页面</label>
+                                   <label class="m-r"><input name="type" value="3" type="radio" #if(category.type==3) checked #end>链接</label>
+                                   <label class="m-r"><input name="type" value="4" type="radio" #if(category.type==4) checked #end>空栏目</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal clearfix" id="type1" #if(category.type==1) #else style="display: none;" #end>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">模板：</label>
+	                            <div class="col-sm-3">
+	                                <div class="row">
+	                                    <div class="col-sm-6">
+	                                        <div class="input-group">
+	                                            <input placeholder="模板" class="form-control" type="text" name="template" value="#(category.template)">
+	                                        </div>
+	                                    </div>  
+	                                    <div class="col-sm-6">
+	                                        <div class="input-group">
+	                                            <span class="input-group-addon">分页数量:</span>
+	                                            <input placeholder="分页数量" class="form-control" type="text" name="pageSize" value="#(category.pageSize)">
+	                                        </div>                         
+	                                    </div>  
+	                                </div>  
+	                            </div>
+	                        </div>
+                        </div>
+                        <div class="form-horizontal clearfix" id="type2" #if(category.type==2) #else style="display: none;" #end>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">模板：</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" type="text" name="template" value="#(category.template)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal clearfix" id="type3" #if(category.type==3) #else style="display: none;" #end>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">链接地址：</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" type="text" name="url" value="#(category.url)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal clearfix" id="type4" style="display: none">
+	                    </div>
+                        <div class="form-horizontal clearfix" id="baseInfo" #if(category.type==3) style="display: none;" #end>
+		                   	<div class="form-group">
+		                        <label class="col-sm-3 control-label">图片：</label>
+		                        <div class="col-sm-3">
+		                            <input type="text" name="image" class="form-control" value="#(category.image)"/>
+		                        </div>
+		                        <div class="col-sm-3">
+									<a href="javascript:;" id="filePicker" class="btn btn-primary">选择文件</a>
+		                        </div>
+		                    </div>
+		                    <div class="form-group">
+	                            <label class="col-sm-3 control-label">标题：</label>
+	                            <div class="col-sm-3">
+	                                 <textarea class="form-control" style="height: 50px;" name="title">#(category.title)</textarea>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">关键词：</label>
+	                            <div class="col-sm-3">
+	                                 <textarea class="form-control" style="height: 50px;" name="keywords">#(category.keywords)</textarea>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">描述：</label>
+	                            <div class="col-sm-3">
+	                                 <textarea class="form-control" style="height: 50px;" name="description">#(category.description)</textarea>
+	                            </div>
+	                        </div>
+                        </div>
+                    </div>
+	            </div>
+	            <div class="modal-footer col-sm-3 col-sm-offset-2">
+	                <button type="submit" class="btn btn-w-m btn-primary">确定</button>
+	                <button type="button" class="btn btn-w-m btn-default" onclick="history.back(); return false;">取消</button>
+	            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+    var $type = $("#type");
+    var $introduction = $("#introduction");
+    var $filePicker = $("#filePicker");
+    
+    $filePicker.uploader();
+    
+    $introduction.editor();
+    
+    $type.on("click","input[type='radio']",function(){
+        $("#type1").hide();
+        $("#type2").hide();
+        $("#type3").hide();
+        $("#type4").hide();
+        $("#baseInfo").hide();
+        if("1"==$(this).val()){
+            $("#baseInfo").show();
+        }else if("2"==$(this).val()){
+            $("#baseInfo").show();
+        }else if("3"==$(this).val()){
+            $("#baseInfo").hide();
+        }else if("4"==$(this).val()){
+            $("#baseInfo").show();
+        }
+        $("#type"+$(this).val()).show();
+    });
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			name: "required",
+			type: "required"
+		}
+	});
+
+});
+</script>

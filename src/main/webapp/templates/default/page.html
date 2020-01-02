@@ -1,0 +1,34 @@
+<div class="page_ctrl">
+#if(totalPages>1)    
+	#if(hasPrevious)
+		<button onclick="location.href='#(pattern)#(previousPageNumber)'" class="prev_page">上一页</button>
+	#else
+		<button class="prev_page btn_dis" disabled="disabled">上一页</button>
+	#end
+	#for(segmentPageNumber : segment)
+		#if(segmentPageNumber != pageNumber)
+			<button onclick="location.href='#(pattern)#(segmentPageNumber)'" class="page_num">#(segmentPageNumber)</button>
+		#else
+			<button class="page_num current_page">#(segmentPageNumber)</button>
+		#end
+	#end
+	#if(hasNext)
+		<button onclick="location.href='#(pattern)#(nextPageNumber)'" class="next_page">下一页</button>
+	#else
+		<button class="page_next btn_dis" disabled="disabled">下一页</button>
+	#end
+	<span class="page_total">共 #(totalPages) 页, 到第</span>
+    <input class="input_page_num" type="text" value="" id="pageNumber"/>
+    <span class="page_text">页</span>
+    <button class="to_page_num" onclick="pagequeding('#(pattern)')">确定</button>
+#end 
+</div>
+<script type="text/javascript">
+function pagequeding(pattern){
+	var $pageNumber = $("#pageNumber");
+	if (!/^\d*[1-9]\d*$/.test($pageNumber.val())) {
+        $pageNumber.val("1");
+    }
+	location.href=pattern+$pageNumber.val();
+}
+</script>

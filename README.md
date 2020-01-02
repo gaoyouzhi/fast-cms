@@ -1,88 +1,49 @@
-# 1. 项目介绍
-**适用于前后端分离的后端快速开发平台**
+# JFinal急速CMS
 
-**基于Spring Boot 2.0版本，集成MyBatis、Spring Security、Redis、Thymeleaf、Swagger、Quartz、ActiveMQ、
-Log4j2高性能日志框架、邮件发送、多线程接口等功能的快速开发平台，下载即可开发。**
+#### 介绍
+JFinal急速CMS，轻量级CMS，企业建站1-3天搞定，后台admintle，前台模板标签，采用JFinal(MVC)，Ehcache(缓存)，Urlrewrite(伪静态) 架构快速搭建个性化独立网站。轻轻松松做站长。
 
-
-
-# 2. 架构设计
-
-![](./doc/asserts/001.png)
-
-# 3. 内置功能
-
-**RBAC基础权限功能**
-
-**切面日志**
-
-**消息队列**
-
-**Swagger开发文档**
-
-**Redis缓存**
-
-**Quartz定时器**
-
-**多线程功能**
-
-**异常统一处理**
-
-# 4. 相关博客
-
-**SpringBoot之多module项目创建-基于Spring Boot2.x版本：[链接](https://blog.csdn.net/weixin_39723544/article/details/83058455)**
-
-**SpringBoot之整合Redis分析和实现-基于Spring Boot2.x版本：[链接](https://blog.csdn.net/weixin_39723544/article/details/80743074)**
-
-**SpringBoot之整合Swagger2分析和实现-基于Spring Boot2.x版本：[链接](https://blog.csdn.net/weixin_39723544/article/details/81085387)**
-
-**SpringBoot之整合Quartz调度框架-基于Spring Boot2.x版本：[链接](https://blog.csdn.net/weixin_39723544/article/details/83382000)**
-
-**SpringBoot之整合Thymeleaf-基于Spring Boot2.x版本：[链接](https://blog.csdn.net/weixin_39723544/article/details/82721279)**
-
-**SpringBoot之War和Jar包部署-基于Spring Boot2.x版本：[链接](https://blog.csdn.net/weixin_39723544/article/details/82012827)**
-
-...
-
-# 5. 后续功能
-
-**移除MyBatis，依赖JDBC封装JDBC**
-
-**工作流**
-
-**项目模块化**
-
-...
+#### 软件架构
+MVC:JFinal<br/>
+缓存:Ehcache<br/>
+伪静态:Urlrewrite<br/>
+存储:阿里云OSS<br/>
+数据库:Mysql<br/>
 
 
+#### 安装教程
 
+1.  Maven导入代码
+2.  sql文件导入数据库
+3.  修改config.properties数据库配置，运行CmsConfig类
 
+#### 使用说明
 
+1.  后台地址：http://ip:端口/admin/login 默认账号:admin 密码:123456<br/>
+2.  演示<br/>
+前台：http://www.jrecms.com<br/>
+后台：http://www.jrecms.com/admin/login 账号:admin 密码:123456<br/>
 
+#### 主要功能
 
+1.  后台首页echarts报表统计
+2.  栏目管理
+3.  内容管理
+4.  友情链接管理
+5.  广告位管理
+6.  广告管理
+7.  用户管理
+8.  系统管理
 
+#### 模板标签
 
+1.  广告位标签
+2.  栏目标签
+3.  内容标签
+4.  友情链接标签
+5.  分页标签
 
+#### 运行截图
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1.  后台<br/>
+2.  前台<br/>

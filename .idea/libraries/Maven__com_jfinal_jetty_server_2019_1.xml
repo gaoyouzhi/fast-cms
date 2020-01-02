@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.jfinal:jetty-server:2019.1">
+    <CLASSES>
+      <root url="jar://E:/.m2/com/jfinal/jetty-server/2019.1/jetty-server-2019.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/.m2/com/jfinal/jetty-server/2019.1/jetty-server-2019.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/.m2/com/jfinal/jetty-server/2019.1/jetty-server-2019.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
